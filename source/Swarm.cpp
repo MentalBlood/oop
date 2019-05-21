@@ -18,6 +18,14 @@ void Swarm::addRobot(Robot *newRobot, std::string newRobotName) {
         robots[newRobotName] = newRobot;
 }
 
+void Swarm::removeRobot(const std::string name) {
+    std::map<std::string, Robot*, std::less<std::string> >::iterator robotIterator = robots.find(name);
+    if (robotIterator != robots.end()) {
+        delete robotIterator->second;
+        robots.erase(robotIterator);
+    }
+}
+
 bool Swarm::addSubordinationFromTo(const std::string fromRobotName, const std::string toRobotName) {
     Robot *fromRobot = getRobot(fromRobotName);
     if (!fromRobot)

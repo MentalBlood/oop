@@ -12,6 +12,7 @@ class Swarm {
     public:
         Swarm();
         void addRobot(Robot*, const std::string name);
+        void removeRobot(const std::string);
         bool addSubordinationFromTo(const std::string, const std::string);
         bool removeSubordinationFromTo(const std::string, const std::string);
 };
