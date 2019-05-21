@@ -21,6 +21,7 @@ void Swarm::addRobot(Robot *newRobot, std::string newRobotName) {
 void Swarm::removeRobot(const std::string name) {
     std::map<std::string, Robot*, std::less<std::string> >::iterator robotIterator = robots.find(name);
     if (robotIterator != robots.end()) {
+        robotIterator->second->getCommander()->removeSubordinate(name);
         delete robotIterator->second;
         robots.erase(robotIterator);
     }
